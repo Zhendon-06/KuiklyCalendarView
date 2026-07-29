@@ -18,7 +18,7 @@ API 可用于 Android、iOS、Web（Kotlin/JS）和 OpenHarmony。
   </a>
 </p>
 
-> 点击演示图可查看原始 GIF。
+> 点击演示图可查看完整演示视频。
 
 演示页面名为 `calendar_demo`，完整源码见
 [`CalendarDemoPage.kt`](shared/src/commonMain/kotlin/com/guet/liang/kuiklycalendarview/CalendarDemoPage.kt)。
