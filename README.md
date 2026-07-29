@@ -5,7 +5,6 @@
 日期范围和类型化事件回调；核心 UI 与日期算法位于 `commonMain`，同一套 Kotlin
 API 可用于 Android、iOS、Web（Kotlin/JS）和 OpenHarmony。
 
-仓库地址：[github.com/Zhendon-06/KuiklyCalendarView](https://github.com/Zhendon-06/KuiklyCalendarView)
 
 ## 演示 Demo
 
