@@ -18,6 +18,7 @@ import com.tencent.kuikly.core.base.attr.AccessibilityRole
 import com.tencent.kuikly.core.directives.vbind
 import com.tencent.kuikly.core.directives.vif
 import com.tencent.kuikly.core.reactive.handler.observable
+import com.tencent.kuikly.core.views.Canvas
 import com.tencent.kuikly.core.views.Text
 import com.tencent.kuikly.core.views.View
 
@@ -421,13 +422,21 @@ class KuiklyCalendarView : ComposeView<CalendarAttr, CalendarEvent>() {
                             flex(1f)
                             alignItemsCenter()
                         }
-                        Text {
+                        View {
                             attr {
-                                text(ctx.attr.locale.monthTitle(ctx.displayedMonth))
-                                color(style.headerTextColor)
-                                fontSize(22f)
-                                fontWeight600()
-                                animation(Animation.easeOut(0.2f), ctx.displayedMonth)
+                                height(28f)
+                                alignSelfStretch()
+                                allCenter()
+                            }
+                            Text {
+                                attr {
+                                    text(ctx.attr.locale.monthTitle(ctx.displayedMonth))
+                                    color(style.headerTextColor)
+                                    fontSize(22f)
+                                    fontWeight600()
+                                    lines(1)
+                                    textAlignCenter()
+                                }
                             }
                         }
                         Text {
@@ -479,13 +488,30 @@ class KuiklyCalendarView : ComposeView<CalendarAttr, CalendarEvent>() {
                         }
                     }
                 }
-                Text {
+                Canvas({
                     attr {
-                        text(if (previous) "‹" else "›")
-                        color(style.headerTextColor)
-                        fontSize(30f)
-                        fontWeight400()
+                        size(14f, 18f)
                     }
+                }) { context, width, height ->
+                    val direction = if (previous) -1f else 1f
+                    val centerX = width / 2f
+                    val centerY = height / 2f
+                    val horizontalRadius = 3.5f
+                    val verticalRadius = 5.5f
+                    context.beginPath()
+                    context.moveTo(
+                        centerX - direction * horizontalRadius,
+                        centerY - verticalRadius,
+                    )
+                    context.lineTo(centerX + direction * horizontalRadius, centerY)
+                    context.lineTo(
+                        centerX - direction * horizontalRadius,
+                        centerY + verticalRadius,
+                    )
+                    context.strokeStyle(style.headerTextColor)
+                    context.lineWidth(2.4f)
+                    context.lineCapRound()
+                    context.stroke()
                 }
             }
         }
