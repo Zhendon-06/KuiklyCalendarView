@@ -9,7 +9,7 @@ API 可用于 Android、iOS、Web（Kotlin/JS）和 OpenHarmony。
 ## 演示 Demo
 
 <p align="center">
-  <a href="docs/assets/kuikly-calendar-demo.gif">
+  <a href="docs/assets/CalendarDemo.mp4">
     <img
       src="docs/assets/kuikly-calendar-demo.gif"
       width="240"
